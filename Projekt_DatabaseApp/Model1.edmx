@@ -1,0 +1,359 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Planety_archiwumModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Atmosfera">
+          <Key>
+            <PropertyRef Name="AtmosferaID" />
+          </Key>
+          <Property Name="AtmosferaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PlanetaID" Type="int" Nullable="false" />
+          <Property Name="Grubosc_atmosfery_km" Type="smallint" />
+          <Property Name="Temperatura_atmosfery_stopnieC" Type="char" MaxLength="20" />
+          <Property Name="Sklad_atmosfery" Type="char" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Atmosfera_gwiazd">
+          <Key>
+            <PropertyRef Name="AtmosferaID" />
+          </Key>
+          <Property Name="AtmosferaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GwiazdaID" Type="int" Nullable="false" />
+          <Property Name="Temperatura_atmosfery_stopnieC_gwiazdy" Type="char" MaxLength="20" />
+          <Property Name="Sklad_atmosfery_gwiazdy" Type="char" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Gwiazdy">
+          <Key>
+            <PropertyRef Name="GwiazdaID" />
+          </Key>
+          <Property Name="GwiazdaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazwa_gwiazdy" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="Rodzaj_gwiazdy" Type="char" MaxLength="30" />
+          <Property Name="Oddalenie_od_ukladu_slonecznego_ly" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Liczba_obiegajacych_planet" Type="smallint" />
+          <Property Name="Srednica_gwiazdy_km" Type="bigint" />
+          <Property Name="Masa_gwiazdy_kg" Type="char" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Naturalne_satelity">
+          <Key>
+            <PropertyRef Name="Naturalna_satelitaID" />
+          </Key>
+          <Property Name="Naturalna_satelitaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PlanetaID" Type="int" />
+          <Property Name="Nazwa_satelity" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="Srednica_km" Type="int" />
+        </EntityType>
+        <EntityType Name="Planety">
+          <Key>
+            <PropertyRef Name="PlanetaID" />
+          </Key>
+          <Property Name="PlanetaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GwiazdaID" Type="int" />
+          <Property Name="Nazwa" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="Rodzaj_planety" Type="char" MaxLength="30" />
+          <Property Name="Srednia_odleglosc_od_gwiazdy_km" Type="bigint" />
+          <Property Name="Rok_gwiazdowy_dni" Type="decimal" Precision="10" Scale="5" />
+          <Property Name="Liczba_naturalnych_satelit" Type="smallint" />
+          <Property Name="Powierzchnia_km2" Type="char" MaxLength="50" />
+          <Property Name="Masa_kg" Type="char" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__Atmosfera__Gwiaz__2F10007B">
+          <End Role="Gwiazdy" Type="Self.Gwiazdy" Multiplicity="1" />
+          <End Role="Atmosfera_gwiazd" Type="Self.Atmosfera_gwiazd" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gwiazdy">
+              <PropertyRef Name="GwiazdaID" />
+            </Principal>
+            <Dependent Role="Atmosfera_gwiazd">
+              <PropertyRef Name="GwiazdaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Atmosfera__Plane__2C3393D0">
+          <End Role="Planety" Type="Self.Planety" Multiplicity="1" />
+          <End Role="Atmosfera" Type="Self.Atmosfera" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Planety">
+              <PropertyRef Name="PlanetaID" />
+            </Principal>
+            <Dependent Role="Atmosfera">
+              <PropertyRef Name="PlanetaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Naturalne__Plane__29572725">
+          <End Role="Planety" Type="Self.Planety" Multiplicity="0..1" />
+          <End Role="Naturalne_satelity" Type="Self.Naturalne_satelity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Planety">
+              <PropertyRef Name="PlanetaID" />
+            </Principal>
+            <Dependent Role="Naturalne_satelity">
+              <PropertyRef Name="PlanetaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Planety__Gwiazda__267ABA7A">
+          <End Role="Gwiazdy" Type="Self.Gwiazdy" Multiplicity="0..1" />
+          <End Role="Planety" Type="Self.Planety" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gwiazdy">
+              <PropertyRef Name="GwiazdaID" />
+            </Principal>
+            <Dependent Role="Planety">
+              <PropertyRef Name="GwiazdaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Planety_archiwumModelStoreContainer">
+          <EntitySet Name="Atmosfera" EntityType="Self.Atmosfera" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Atmosfera_gwiazd" EntityType="Self.Atmosfera_gwiazd" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gwiazdy" EntityType="Self.Gwiazdy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Naturalne_satelity" EntityType="Self.Naturalne_satelity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Planety" EntityType="Self.Planety" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Atmosfera__Gwiaz__2F10007B" Association="Self.FK__Atmosfera__Gwiaz__2F10007B">
+            <End Role="Gwiazdy" EntitySet="Gwiazdy" />
+            <End Role="Atmosfera_gwiazd" EntitySet="Atmosfera_gwiazd" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Atmosfera__Plane__2C3393D0" Association="Self.FK__Atmosfera__Plane__2C3393D0">
+            <End Role="Planety" EntitySet="Planety" />
+            <End Role="Atmosfera" EntitySet="Atmosfera" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Naturalne__Plane__29572725" Association="Self.FK__Naturalne__Plane__29572725">
+            <End Role="Planety" EntitySet="Planety" />
+            <End Role="Naturalne_satelity" EntitySet="Naturalne_satelity" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Planety__Gwiazda__267ABA7A" Association="Self.FK__Planety__Gwiazda__267ABA7A">
+            <End Role="Gwiazdy" EntitySet="Gwiazdy" />
+            <End Role="Planety" EntitySet="Planety" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Planety_archiwumModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Atmosfera">
+          <Key>
+            <PropertyRef Name="AtmosferaID" />
+          </Key>
+          <Property Name="AtmosferaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PlanetaID" Type="Int32" Nullable="false" />
+          <Property Name="Grubosc_atmosfery_km" Type="Int16" />
+          <Property Name="Temperatura_atmosfery_stopnieC" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="Sklad_atmosfery" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Planety" Relationship="Self.FK__Atmosfera__Plane__2C3393D0" FromRole="Atmosfera" ToRole="Planety" />
+        </EntityType>
+        <EntityType Name="Atmosfera_gwiazd">
+          <Key>
+            <PropertyRef Name="AtmosferaID" />
+          </Key>
+          <Property Name="AtmosferaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GwiazdaID" Type="Int32" Nullable="false" />
+          <Property Name="Temperatura_atmosfery_stopnieC_gwiazdy" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="Sklad_atmosfery_gwiazdy" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Gwiazdy" Relationship="Self.FK__Atmosfera__Gwiaz__2F10007B" FromRole="Atmosfera_gwiazd" ToRole="Gwiazdy" />
+        </EntityType>
+        <EntityType Name="Gwiazdy">
+          <Key>
+            <PropertyRef Name="GwiazdaID" />
+          </Key>
+          <Property Name="GwiazdaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazwa_gwiazdy" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Rodzaj_gwiazdy" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+          <Property Name="Oddalenie_od_ukladu_slonecznego_ly" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Liczba_obiegajacych_planet" Type="Int16" />
+          <Property Name="Srednica_gwiazdy_km" Type="Int64" />
+          <Property Name="Masa_gwiazdy_kg" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Atmosfera_gwiazd" Relationship="Self.FK__Atmosfera__Gwiaz__2F10007B" FromRole="Gwiazdy" ToRole="Atmosfera_gwiazd" />
+          <NavigationProperty Name="Planety" Relationship="Self.FK__Planety__Gwiazda__267ABA7A" FromRole="Gwiazdy" ToRole="Planety" />
+        </EntityType>
+        <EntityType Name="Naturalne_satelity">
+          <Key>
+            <PropertyRef Name="Naturalna_satelitaID" />
+          </Key>
+          <Property Name="Naturalna_satelitaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PlanetaID" Type="Int32" />
+          <Property Name="Nazwa_satelity" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Srednica_km" Type="Int32" />
+          <NavigationProperty Name="Planety" Relationship="Self.FK__Naturalne__Plane__29572725" FromRole="Naturalne_satelity" ToRole="Planety" />
+        </EntityType>
+        <EntityType Name="Planety">
+          <Key>
+            <PropertyRef Name="PlanetaID" />
+          </Key>
+          <Property Name="PlanetaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GwiazdaID" Type="Int32" />
+          <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Rodzaj_planety" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+          <Property Name="Srednia_odleglosc_od_gwiazdy_km" Type="Int64" />
+          <Property Name="Rok_gwiazdowy_dni" Type="Decimal" Precision="10" Scale="5" />
+          <Property Name="Liczba_naturalnych_satelit" Type="Int16" />
+          <Property Name="Powierzchnia_km2" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="Masa_kg" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Atmosfera" Relationship="Self.FK__Atmosfera__Plane__2C3393D0" FromRole="Planety" ToRole="Atmosfera" />
+          <NavigationProperty Name="Gwiazdy" Relationship="Self.FK__Planety__Gwiazda__267ABA7A" FromRole="Planety" ToRole="Gwiazdy" />
+          <NavigationProperty Name="Naturalne_satelity" Relationship="Self.FK__Naturalne__Plane__29572725" FromRole="Planety" ToRole="Naturalne_satelity" />
+        </EntityType>
+        <Association Name="FK__Atmosfera__Plane__2C3393D0">
+          <End Role="Planety" Type="Self.Planety" Multiplicity="1" />
+          <End Role="Atmosfera" Type="Self.Atmosfera" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Planety">
+              <PropertyRef Name="PlanetaID" />
+            </Principal>
+            <Dependent Role="Atmosfera">
+              <PropertyRef Name="PlanetaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Atmosfera__Gwiaz__2F10007B">
+          <End Role="Gwiazdy" Type="Self.Gwiazdy" Multiplicity="1" />
+          <End Role="Atmosfera_gwiazd" Type="Self.Atmosfera_gwiazd" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gwiazdy">
+              <PropertyRef Name="GwiazdaID" />
+            </Principal>
+            <Dependent Role="Atmosfera_gwiazd">
+              <PropertyRef Name="GwiazdaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Planety__Gwiazda__267ABA7A">
+          <End Role="Gwiazdy" Type="Self.Gwiazdy" Multiplicity="0..1" />
+          <End Role="Planety" Type="Self.Planety" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gwiazdy">
+              <PropertyRef Name="GwiazdaID" />
+            </Principal>
+            <Dependent Role="Planety">
+              <PropertyRef Name="GwiazdaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Naturalne__Plane__29572725">
+          <End Role="Planety" Type="Self.Planety" Multiplicity="0..1" />
+          <End Role="Naturalne_satelity" Type="Self.Naturalne_satelity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Planety">
+              <PropertyRef Name="PlanetaID" />
+            </Principal>
+            <Dependent Role="Naturalne_satelity">
+              <PropertyRef Name="PlanetaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Planety_archiwumEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Atmosfera" EntityType="Self.Atmosfera" />
+          <EntitySet Name="Atmosfera_gwiazd" EntityType="Self.Atmosfera_gwiazd" />
+          <EntitySet Name="Gwiazdy" EntityType="Self.Gwiazdy" />
+          <EntitySet Name="Naturalne_satelity" EntityType="Self.Naturalne_satelity" />
+          <EntitySet Name="Planety" EntityType="Self.Planety" />
+          <AssociationSet Name="FK__Atmosfera__Plane__2C3393D0" Association="Self.FK__Atmosfera__Plane__2C3393D0">
+            <End Role="Planety" EntitySet="Planety" />
+            <End Role="Atmosfera" EntitySet="Atmosfera" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Atmosfera__Gwiaz__2F10007B" Association="Self.FK__Atmosfera__Gwiaz__2F10007B">
+            <End Role="Gwiazdy" EntitySet="Gwiazdy" />
+            <End Role="Atmosfera_gwiazd" EntitySet="Atmosfera_gwiazd" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Planety__Gwiazda__267ABA7A" Association="Self.FK__Planety__Gwiazda__267ABA7A">
+            <End Role="Gwiazdy" EntitySet="Gwiazdy" />
+            <End Role="Planety" EntitySet="Planety" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Naturalne__Plane__29572725" Association="Self.FK__Naturalne__Plane__29572725">
+            <End Role="Planety" EntitySet="Planety" />
+            <End Role="Naturalne_satelity" EntitySet="Naturalne_satelity" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Planety_archiwumModelStoreContainer" CdmEntityContainer="Planety_archiwumEntities">
+          <EntitySetMapping Name="Atmosfera">
+            <EntityTypeMapping TypeName="Planety_archiwumModel.Atmosfera">
+              <MappingFragment StoreEntitySet="Atmosfera">
+                <ScalarProperty Name="AtmosferaID" ColumnName="AtmosferaID" />
+                <ScalarProperty Name="PlanetaID" ColumnName="PlanetaID" />
+                <ScalarProperty Name="Grubosc_atmosfery_km" ColumnName="Grubosc_atmosfery_km" />
+                <ScalarProperty Name="Temperatura_atmosfery_stopnieC" ColumnName="Temperatura_atmosfery_stopnieC" />
+                <ScalarProperty Name="Sklad_atmosfery" ColumnName="Sklad_atmosfery" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Atmosfera_gwiazd">
+            <EntityTypeMapping TypeName="Planety_archiwumModel.Atmosfera_gwiazd">
+              <MappingFragment StoreEntitySet="Atmosfera_gwiazd">
+                <ScalarProperty Name="AtmosferaID" ColumnName="AtmosferaID" />
+                <ScalarProperty Name="GwiazdaID" ColumnName="GwiazdaID" />
+                <ScalarProperty Name="Temperatura_atmosfery_stopnieC_gwiazdy" ColumnName="Temperatura_atmosfery_stopnieC_gwiazdy" />
+                <ScalarProperty Name="Sklad_atmosfery_gwiazdy" ColumnName="Sklad_atmosfery_gwiazdy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gwiazdy">
+            <EntityTypeMapping TypeName="Planety_archiwumModel.Gwiazdy">
+              <MappingFragment StoreEntitySet="Gwiazdy">
+                <ScalarProperty Name="GwiazdaID" ColumnName="GwiazdaID" />
+                <ScalarProperty Name="Nazwa_gwiazdy" ColumnName="Nazwa_gwiazdy" />
+                <ScalarProperty Name="Rodzaj_gwiazdy" ColumnName="Rodzaj_gwiazdy" />
+                <ScalarProperty Name="Oddalenie_od_ukladu_slonecznego_ly" ColumnName="Oddalenie_od_ukladu_slonecznego_ly" />
+                <ScalarProperty Name="Liczba_obiegajacych_planet" ColumnName="Liczba_obiegajacych_planet" />
+                <ScalarProperty Name="Srednica_gwiazdy_km" ColumnName="Srednica_gwiazdy_km" />
+                <ScalarProperty Name="Masa_gwiazdy_kg" ColumnName="Masa_gwiazdy_kg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Naturalne_satelity">
+            <EntityTypeMapping TypeName="Planety_archiwumModel.Naturalne_satelity">
+              <MappingFragment StoreEntitySet="Naturalne_satelity">
+                <ScalarProperty Name="Naturalna_satelitaID" ColumnName="Naturalna_satelitaID" />
+                <ScalarProperty Name="PlanetaID" ColumnName="PlanetaID" />
+                <ScalarProperty Name="Nazwa_satelity" ColumnName="Nazwa_satelity" />
+                <ScalarProperty Name="Srednica_km" ColumnName="Srednica_km" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Planety">
+            <EntityTypeMapping TypeName="Planety_archiwumModel.Planety">
+              <MappingFragment StoreEntitySet="Planety">
+                <ScalarProperty Name="PlanetaID" ColumnName="PlanetaID" />
+                <ScalarProperty Name="GwiazdaID" ColumnName="GwiazdaID" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="Rodzaj_planety" ColumnName="Rodzaj_planety" />
+                <ScalarProperty Name="Srednia_odleglosc_od_gwiazdy_km" ColumnName="Srednia_odleglosc_od_gwiazdy_km" />
+                <ScalarProperty Name="Rok_gwiazdowy_dni" ColumnName="Rok_gwiazdowy_dni" />
+                <ScalarProperty Name="Liczba_naturalnych_satelit" ColumnName="Liczba_naturalnych_satelit" />
+                <ScalarProperty Name="Powierzchnia_km2" ColumnName="Powierzchnia_km2" />
+                <ScalarProperty Name="Masa_kg" ColumnName="Masa_kg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

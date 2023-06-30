@@ -1,0 +1,9 @@
+﻿<Application x:Class="Projekt_DatabaseApp.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Projekt_DatabaseApp"
+             StartupUri="View/LoginView.xaml">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>
