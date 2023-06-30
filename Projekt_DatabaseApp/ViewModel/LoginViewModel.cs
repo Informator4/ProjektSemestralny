@@ -8,6 +8,9 @@ using System.Windows.Input;
 using System.Diagnostics.Eventing.Reader;
 using Projekt_DatabaseApp.Model;
 using Projekt_DatabaseApp.Repositories;
+using System.Net;
+using System.Threading;
+using System.Security.Principal;
 
 namespace Projekt_DatabaseApp.ViewModel
 {
@@ -59,7 +62,18 @@ namespace Projekt_DatabaseApp.ViewModel
 
         private void ExecuteLoginCommand(object obj)
         {
-            var isValidUser = userRepository.AuthenticateUser(new System.Net.NetworkCredential());
+            var isValidUser = userRepository.AuthenticateUser(new NetworkCredential(Username, Password));
+
+            if (isValidUser)
+            {
+                Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity(Username), null);
+
+                IsViewVisible = false;
+            }
+            else
+            {
+                ErrorMessage = "* Invalid username or password";
+            }
         }
 
         private bool CanExecuteLoginCommand(object obj)
