@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Security;
 using System.Windows.Input;
 using System.Diagnostics.Eventing.Reader;
+using Projekt_DatabaseApp.Model;
+using Projekt_DatabaseApp.Repositories;
 
 namespace Projekt_DatabaseApp.ViewModel
 {
@@ -16,6 +18,8 @@ namespace Projekt_DatabaseApp.ViewModel
         private SecureString _password;
         private string _errorMessage;
         private bool _isViewVisible = true;
+
+        private IUserRepository userRepository;
 
         // ### Properties ###
         public string Username 
@@ -48,13 +52,14 @@ namespace Projekt_DatabaseApp.ViewModel
         // ### Constructor ###
         public LoginViewModel()
         {
+            userRepository = new UserRepository();
             LoginCommand = new ViewModelCommand(ExecuteLoginCommand, CanExecuteLoginCommand);
             RecoverPasswordCommand = new ViewModelCommand(p => ExecuteRecoverPassCommand("", ""));
         }
 
         private void ExecuteLoginCommand(object obj)
         {
-            throw new NotImplementedException();
+            var isValidUser = userRepository.AuthenticateUser(new System.Net.NetworkCredential());
         }
 
         private bool CanExecuteLoginCommand(object obj)
