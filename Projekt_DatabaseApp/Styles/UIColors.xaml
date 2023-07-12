@@ -1,0 +1,17 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--Backgroud Colors-->
+    <Color x:Key="BgColor1">#080038</Color>
+    <Color x:Key="BgColor2">#0b004d</Color>
+    <Color x:Key="ABgColor1">#1f013d</Color>
+    <Color x:Key="ABgColor2">#28014f</Color>
+    
+    <!--Border Colors-->
+    <Color x:Key="winColor1">#810587</Color>
+    <Color x:Key="winColor2">White</Color>
+    
+    <!--Text-->
+    <SolidColorBrush x:Key="LogoText" Color="#9e07a6"/>
+
+</ResourceDictionary>

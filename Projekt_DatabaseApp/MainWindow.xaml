@@ -6,17 +6,77 @@
         xmlns:local="clr-namespace:Projekt_DatabaseApp.View"
         xmlns:viewModel="clr-namespace:Projekt_DatabaseApp.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
-        WindowStartupLocation="CenterScreen">
+        Title="MainWindow" Height="700" Width="1300"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        Background="Transparent"
+        AllowsTransparency="True">
 
     <Window.DataContext>
         <viewModel:MainViewModel/>
     </Window.DataContext>
-    
-    <Grid>
-        <TextBlock Text="{Binding CurrentUserAccount.DisplayName}"
-                   FontSize="20"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"/>
-    </Grid>
+
+    <Border CornerRadius="20"
+            BorderThickness="3">
+
+        <Border.BorderBrush>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="{StaticResource winColor1}" Offset="0"/>
+                <GradientStop Color="{StaticResource winColor2}" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.BorderBrush>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <!--Navigation-->
+                <ColumnDefinition Width="250"/>
+                <!--Content-->
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Navigation Section-->
+            <Border CornerRadius="20, 0, 0, 20"
+                    Grid.Column="0">
+
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="1,1" EndPoint="0,0">
+                        <GradientStop Color="{StaticResource ABgColor1}" Offset="1"/>
+                        <GradientStop Color="{StaticResource ABgColor2}" Offset="0"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <StackPanel>
+
+                    <StackPanel Orientation="Horizontal"
+                                Height="50"
+                                Margin="15, 25, 0, 40">
+                        <TextBlock Text="S P A C E - M"
+                                   Foreground="{StaticResource LogoText}"
+                                   FontFamily="Agency FB"
+                                   FontSize="50"
+                                   FontWeight="Bold"/>
+
+                    </StackPanel>
+                    
+                </StackPanel>
+                
+            </Border>
+            
+            <!--Main Section-->
+            <Border CornerRadius="0, 20, 20, 0"
+                    Grid.Column="1">
+
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="1,1" EndPoint="0,0">
+                        <GradientStop Color="{StaticResource BgColor1}" Offset="1"/>
+                        <GradientStop Color="{StaticResource BgColor2}" Offset="0"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+
+            </Border>
+
+        </Grid>
+
+    </Border>
+
 </Window>

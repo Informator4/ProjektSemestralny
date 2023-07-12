@@ -32,15 +32,15 @@
 
         <Border.BorderBrush>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                <GradientStop Color="#810587" Offset="0"/>
-                <GradientStop Color="White" Offset="1"/>
+                <GradientStop Color="{StaticResource winColor1}" Offset="0"/>
+                <GradientStop Color="{StaticResource winColor2}" Offset="1"/>
             </LinearGradientBrush>
         </Border.BorderBrush>
 
         <Border.Background>
             <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
-                <GradientStop Color="#060029" Offset="0"/>
-                <GradientStop Color="#03026b" Offset="1"/>
+                <GradientStop Color="{StaticResource BgColor1}" Offset="0"/>
+                <GradientStop Color="{StaticResource BgColor2}" Offset="1"/>
             </LinearGradientBrush>
         </Border.Background>
 
@@ -143,10 +143,10 @@
                         Margin="0,40,0,0">
 
                 <TextBlock Text="S P A C E - M"
-                           Foreground="#9e07a6"
+                           Foreground="{StaticResource LogoText}"
                            FontSize="60"
                            FontWeight="Bold"
-                           FontFamily="AGENCY fb"
+                           FontFamily="Agency FB"
                            HorizontalAlignment="Center"/>
 
                 <TextBlock Text="PLANET ARCHIVE"
