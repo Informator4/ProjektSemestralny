@@ -18,13 +18,14 @@ namespace Projekt_DatabaseApp.ViewModel
 
         public UserAccountModel CurrentUserAccount
         {
-            get { return _currentUserAccount; } 
+            get => _currentUserAccount;
             set { _currentUserAccount = value; OnPropwrtyChanged(nameof(CurrentUserAccount)); }
         }
 
         public MainViewModel()
         {
             userRepository = new UserRepository();
+            CurrentUserAccount = new UserAccountModel();
             LoadCurrentUserData();
         }
 
@@ -33,17 +34,12 @@ namespace Projekt_DatabaseApp.ViewModel
             var user = userRepository.GetByUsername(Thread.CurrentPrincipal.Identity.Name);
             if (user != null)
             {
-                CurrentUserAccount = new UserAccountModel()
-                {
-                    Username = user.Username,
-                    DisplayName = $"Welcome {user.Name} {user.LastName}",
-                    ProfilePicture = null
-                };
+                CurrentUserAccount.Username = user.Username;
+                CurrentUserAccount.DisplayName = $"Welcome {user.Name} {user.LastName}!";
             }
             else
             {
-                MessageBox.Show("Invalid user, not logged in");
-                Application.Current.Shutdown();
+                CurrentUserAccount.DisplayName="You are not logged in...";
             }
         }
     }

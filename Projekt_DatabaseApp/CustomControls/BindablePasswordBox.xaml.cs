@@ -25,8 +25,8 @@ namespace Projekt_DatabaseApp.CustomControls
 
         public SecureString Password
         {
-            get { return (SecureString)GetValue(PasswordProperty); }
-            set { SetValue(PasswordProperty, value); }
+            get => (SecureString)GetValue(PasswordProperty);
+            set => SetValue(PasswordProperty, value);
         }
 
         public BindablePasswordBox()
