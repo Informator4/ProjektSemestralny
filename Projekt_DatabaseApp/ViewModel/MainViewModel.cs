@@ -35,11 +35,11 @@ namespace Projekt_DatabaseApp.ViewModel
             if (user != null)
             {
                 CurrentUserAccount.Username = user.Username;
-                CurrentUserAccount.DisplayName = $"Welcome {user.Name} {user.LastName}!";
+                CurrentUserAccount.DisplayName = $"Welcome {user.Name} {user.LastName}";
             }
             else
             {
-                CurrentUserAccount.DisplayName="You are not logged in...";
+                CurrentUserAccount.DisplayName="You are not logged in";
             }
         }
     }

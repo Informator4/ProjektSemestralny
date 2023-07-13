@@ -70,4 +70,32 @@
         </Style.Triggers>
     </Style>
 
+    <!--ProfButton-->
+    <Style x:Key="profButton" TargetType="Button">
+        <!--Button-->
+        <Setter Property="Margin" Value="0, 0, 10, 0"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Width" Value="20"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Background" Value="{StaticResource unmarkedButton}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}"
+                            CornerRadius="5">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Style.Triggers>
+            <!--Mouse is over-->
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource markedButton}"/>
+            </Trigger>
+
+        </Style.Triggers>
+    </Style>
+
 </ResourceDictionary>
