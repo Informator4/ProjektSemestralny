@@ -33,9 +33,9 @@
             <local:NaturalSatellitesView/>
         </DataTemplate>
 
-        <!--<DataTemplate DataType="{x:Type viewModel:StarsAtmosphereViewModel}">
+        <DataTemplate DataType="{x:Type viewModel:StarsAtmosphereViewModel}">
             <local:StarsAtmosphereView/>
-        </DataTemplate>-->
+        </DataTemplate>
     </Window.Resources>
 
     <Border CornerRadius="20"
@@ -116,6 +116,7 @@
                     </RadioButton>
 
                     <RadioButton Style="{StaticResource menuButton}"
+                                 Command="{Binding ShowStarsAtmosphereViewCommand}"
                                  Cursor="Hand">
                         <StackPanel>
                             <TextBlock Text="Star's atmosphere" Style="{StaticResource menuButtonText}"/>
@@ -123,6 +124,7 @@
                     </RadioButton>
 
                     <RadioButton Style="{StaticResource menuButton}"
+                                 Command="{Binding ShowPlanetsAtmosphereViewCommand}"
                                  Cursor="Hand">
                         <StackPanel>
                             <TextBlock Text="Planet's atmosphere" Style="{StaticResource menuButtonText}"/>
@@ -130,6 +132,7 @@
                     </RadioButton>
 
                     <RadioButton Style="{StaticResource menuButton}"
+                                 Command="{Binding ShowSettingsViewCommand}"
                                  Cursor="Hand">
                         <StackPanel>
                             <TextBlock Text="Settings" Style="{StaticResource menuButtonText}"/>

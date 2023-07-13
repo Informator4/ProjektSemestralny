@@ -98,6 +98,9 @@
     <Compile Include="View\PlanetsView.xaml.cs">
       <DependentUpon>PlanetsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\StarsAtmosphereView.xaml.cs">
+      <DependentUpon>StarsAtmosphereView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\StarsView.xaml.cs">
       <DependentUpon>StarsView.xaml</DependentUpon>
     </Compile>
@@ -147,6 +150,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\PlanetsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\StarsAtmosphereView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
