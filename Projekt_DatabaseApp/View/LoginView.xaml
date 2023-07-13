@@ -221,10 +221,10 @@
 
                     <Button.Style>
                         <Style TargetType="Button">
-                            <Setter Property="Background" Value="#525252"/>
+                            <Setter Property="Background" Value="{StaticResource unmarkedButton}"/>
                             <Style.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="#757575"/>
+                                    <Setter Property="Background" Value="{StaticResource markedButton}"/>
                                 </Trigger>
                             </Style.Triggers>
                         </Style>

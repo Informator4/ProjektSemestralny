@@ -13,5 +13,12 @@
     
     <!--Text-->
     <SolidColorBrush x:Key="LogoText" Color="#9e07a6"/>
+    <SolidColorBrush x:Key="unmarkedButton" Color="#525252"/>
+    <SolidColorBrush x:Key="markedButton" Color="#757575"/>
+    <SolidColorBrush x:Key="activeButton" Color="#33085e"/>
+    
+    <!--Menu Buttons-->
+    <SolidColorBrush x:Key="c1" Color="White"/>
+    <!--#1aad10-->
 
-</ResourceDictionary>
+</ResourceDictionary> 

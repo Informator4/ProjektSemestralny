@@ -47,6 +47,7 @@
 
                 <StackPanel>
 
+                    <!--Logo-->
                     <StackPanel Orientation="Horizontal"
                                 Height="50"
                                 Margin="15, 25, 0, 40">
@@ -58,6 +59,49 @@
 
                     </StackPanel>
                     
+                    <!--Menu-->
+                    <RadioButton Style="{StaticResource menuButton}">
+                        <StackPanel>
+                            <TextBlock Text="Home" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+
+                    <RadioButton Style="{StaticResource menuButton}">
+                        <StackPanel>
+                            <TextBlock Text="Stars" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+
+                    <RadioButton Style="{StaticResource menuButton}">
+                        <StackPanel>
+                            <TextBlock Text="Planets" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+
+                    <RadioButton Style="{StaticResource menuButton}">
+                        <StackPanel>
+                            <TextBlock Text="Natural satellites" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+
+                    <RadioButton Style="{StaticResource menuButton}">
+                        <StackPanel>
+                            <TextBlock Text="Star's atmosphere" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+
+                    <RadioButton Style="{StaticResource menuButton}">
+                        <StackPanel>
+                            <TextBlock Text="Planet's atmosphere" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+
+                    <RadioButton Style="{StaticResource menuButton}">
+                        <StackPanel>
+                            <TextBlock Text="Settings" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+
                 </StackPanel>
                 
             </Border>
@@ -72,6 +116,25 @@
                         <GradientStop Color="{StaticResource BgColor2}" Offset="0"/>
                     </LinearGradientBrush>
                 </Border.Background>
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel x:Name="CtrlBar"
+                                Grid.Row="0"
+                                Orientation="Horizontal"
+                                FlowDirection="RightToLeft"
+                                Background="Transparent"
+                                Margin="0, 0, 5, 0"
+                                MouseLeftButtonDown="CtrlBar_MouseLeftButtonDown">
+
+                    </StackPanel>
+
+                </Grid>
 
             </Border>
 
