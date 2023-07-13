@@ -75,11 +75,12 @@
     <Compile Include="Model\UserModel.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
-    <Compile Include="ViewModel\NavigationButtons\HomeViewModel.cs" />
+    <Compile Include="ViewModel\Nav\HomeViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
-    <Compile Include="ViewModel\NavigationButtons\PlanetsViewModel.cs" />
-    <Compile Include="ViewModel\NavigationButtons\StarsViewModel.cs" />
+    <Compile Include="ViewModel\Nav\NaturalSatellitesViewModel.cs" />
+    <Compile Include="ViewModel\Nav\PlanetsViewModel.cs" />
+    <Compile Include="ViewModel\Nav\StarsViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="ViewModel\ViewModelCommand.cs" />
     <Compile Include="View\HomeView.xaml.cs">

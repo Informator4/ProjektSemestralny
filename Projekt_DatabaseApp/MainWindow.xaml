@@ -24,6 +24,10 @@
         <DataTemplate DataType="{x:Type viewModel:StarsViewModel}">
             <local:StarsView/>
         </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModel:PlanetsViewModel}">
+            <local:PlanetsView/>
+        </DataTemplate>
     </Window.Resources>
 
     <Border CornerRadius="20"
@@ -88,6 +92,7 @@
                     </RadioButton>
 
                     <RadioButton Style="{StaticResource menuButton}"
+                                 Command="{Binding ShowPlanetsViewCommand}"
                                  Cursor="Hand">
                         <StackPanel>
                             <TextBlock Text="Planets" Style="{StaticResource menuButtonText}"/>

@@ -42,6 +42,7 @@ namespace Projekt_DatabaseApp.ViewModel
         // ### Commands ###
         public ICommand ShowHomeViewCommand { get; }
         public ICommand ShowStarsViewCommand { get; }
+        public ICommand ShowPlanetsViewCommand { get; }
 
         public MainViewModel()
         {
@@ -51,11 +52,18 @@ namespace Projekt_DatabaseApp.ViewModel
             // ### Initialize Commands ###
             ShowHomeViewCommand = new ViewModelCommand(ExecuteShowHomeViewCommand);
             ShowStarsViewCommand = new ViewModelCommand(ExecuteShowStarsViewCommand);
+            ShowPlanetsViewCommand = new ViewModelCommand(ExecuteShowPlanetsViewCommand);
 
             // ### Default view ###
             ExecuteShowHomeViewCommand(null);
 
             LoadCurrentUserData();
+        }
+
+        private void ExecuteShowPlanetsViewCommand(object obj)
+        {
+            CurrentChildView = new PlanetsViewModel();
+            Caption = "Planets";
         }
 
         private void ExecuteShowStarsViewCommand(object obj)
