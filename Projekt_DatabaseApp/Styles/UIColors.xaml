@@ -19,6 +19,8 @@
     
     <!--Menu Buttons-->
     <SolidColorBrush x:Key="c1" Color="White"/>
+    <SolidColorBrush x:Key="c2" Color="#ba0404"/>
+    <SolidColorBrush x:Key="c3" Color="#092beb"/>
     <!--#1aad10-->
 
 </ResourceDictionary> 

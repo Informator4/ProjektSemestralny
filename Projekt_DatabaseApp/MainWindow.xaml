@@ -119,7 +119,7 @@
 
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="30"/>
                         <RowDefinition Height="50"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
@@ -129,9 +129,27 @@
                                 Orientation="Horizontal"
                                 FlowDirection="RightToLeft"
                                 Background="Transparent"
-                                Margin="0, 0, 5, 0"
+                                Margin="0, 0, 12, 0"
                                 MouseLeftButtonDown="CtrlBar_MouseLeftButtonDown"
                                 MouseEnter="CtrlBar_MouseEnter">
+
+                        <Button x:Name="closeBatton"
+                                Style="{StaticResource CtrlButton}"
+                                Tag="{StaticResource c2}"
+                                Click="closeBatton_Click">
+                        </Button>
+
+                        <Button x:Name="maxBatton"
+                                Style="{StaticResource CtrlButton}"
+                                Tag="{StaticResource c3}"
+                                Click="maxBatton_Click">
+                        </Button>
+
+                        <Button x:Name="minBatton"
+                                Style="{StaticResource CtrlButton}"
+                                Tag="{StaticResource markedButton}"
+                                Click="minBatton_Click">
+                        </Button>
 
                     </StackPanel>
 
