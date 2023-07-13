@@ -28,6 +28,14 @@
         <DataTemplate DataType="{x:Type viewModel:PlanetsViewModel}">
             <local:PlanetsView/>
         </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModel:NaturalSatellitesViewModel}">
+            <local:NaturalSatellitesView/>
+        </DataTemplate>
+
+        <!--<DataTemplate DataType="{x:Type viewModel:StarsAtmosphereViewModel}">
+            <local:StarsAtmosphereView/>
+        </DataTemplate>-->
     </Window.Resources>
 
     <Border CornerRadius="20"
@@ -100,6 +108,7 @@
                     </RadioButton>
 
                     <RadioButton Style="{StaticResource menuButton}"
+                                 Command="{Binding ShowNaturalSatellitesViewCommand}"
                                  Cursor="Hand">
                         <StackPanel>
                             <TextBlock Text="Natural satellites" Style="{StaticResource menuButtonText}"/>

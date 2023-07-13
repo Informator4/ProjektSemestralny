@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Projekt_DatabaseApp.ViewModel
 {
-    internal class NaturalSatellitesViewModel : ViewModelBase
+    internal class SettingsViewModel : ViewModelBase
     {
     }
 }

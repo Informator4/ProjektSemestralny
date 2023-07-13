@@ -81,6 +81,9 @@
     <Compile Include="ViewModel\Nav\NaturalSatellitesViewModel.cs" />
     <Compile Include="ViewModel\Nav\PlanetsViewModel.cs" />
     <Compile Include="ViewModel\Nav\StarsViewModel.cs" />
+    <Compile Include="ViewModel\Nav\PlanetsAtmosphereViewModel.cs" />
+    <Compile Include="ViewModel\Nav\SettingsViewModel.cs" />
+    <Compile Include="ViewModel\Nav\StarsAtmosphereViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="ViewModel\ViewModelCommand.cs" />
     <Compile Include="View\HomeView.xaml.cs">
@@ -88,6 +91,9 @@
     </Compile>
     <Compile Include="View\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NaturalSatellitesView.xaml.cs">
+      <DependentUpon>NaturalSatellitesView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\PlanetsView.xaml.cs">
       <DependentUpon>PlanetsView.xaml</DependentUpon>
@@ -133,6 +139,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NaturalSatellitesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -43,6 +43,10 @@ namespace Projekt_DatabaseApp.ViewModel
         public ICommand ShowHomeViewCommand { get; }
         public ICommand ShowStarsViewCommand { get; }
         public ICommand ShowPlanetsViewCommand { get; }
+        public ICommand ShowNaturalSatellitesViewCommand { get; }
+        public ICommand ShowStarsAtmosphereViewCommand { get; }
+        public ICommand ShowPlanetsAtmosphereViewCommand { get; }
+        public ICommand ShowSettingsViewCommand { get; }
 
         public MainViewModel()
         {
@@ -53,11 +57,39 @@ namespace Projekt_DatabaseApp.ViewModel
             ShowHomeViewCommand = new ViewModelCommand(ExecuteShowHomeViewCommand);
             ShowStarsViewCommand = new ViewModelCommand(ExecuteShowStarsViewCommand);
             ShowPlanetsViewCommand = new ViewModelCommand(ExecuteShowPlanetsViewCommand);
+            ShowNaturalSatellitesViewCommand = new ViewModelCommand(ExecuteShowNaturalSatellitesViewCommand);
+            ShowStarsAtmosphereViewCommand = new ViewModelCommand(ExecuteShowStarsAtmosphereViewCommand);
+            ShowPlanetsAtmosphereViewCommand = new ViewModelCommand(ExecuteShowPlanetsAtmosphereViewCommand);
+            ShowSettingsViewCommand = new ViewModelCommand(ExecuteShowSettingsViewCommand);
 
             // ### Default view ###
             ExecuteShowHomeViewCommand(null);
 
             LoadCurrentUserData();
+        }
+
+        private void ExecuteShowSettingsViewCommand(object obj)
+        {
+            CurrentChildView = new SettingsViewModel();
+            Caption = "Settings";
+        }
+
+        private void ExecuteShowPlanetsAtmosphereViewCommand(object obj)
+        {
+            CurrentChildView = new PlanetsAtmosphereViewModel();
+            Caption = "PlanetsAtmosphere";
+        }
+
+        private void ExecuteShowStarsAtmosphereViewCommand(object obj)
+        {
+            CurrentChildView = new StarsAtmosphereViewModel();
+            Caption = "StarsAtmosphere";
+        }
+
+        private void ExecuteShowNaturalSatellitesViewCommand(object obj)
+        {
+            CurrentChildView = new NaturalSatellitesViewModel();
+            Caption = "NaturalSatellites";
         }
 
         private void ExecuteShowPlanetsViewCommand(object obj)
