@@ -73,7 +73,7 @@
                 Padding="10">
             <DataGrid ColumnWidth="*"
                       Background="{StaticResource c5}"
-                      BorderThickness="0" SelectionChanged="DataGrid_SelectionChanged">
+                      BorderThickness="0">
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="DataGridColumnHeader">
                         <Setter Property="Background" Value="Transparent"/>

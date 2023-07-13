@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Projekt_DatabaseApp.View
 {
     /// <summary>
-    /// Logika interakcji dla klasy StarsView.xaml
+    /// Logika interakcji dla klasy SettingsView.xaml
     /// </summary>
-    public partial class StarsView : UserControl
+    public partial class SettingsView : UserControl
     {
-        public StarsView()
+        public SettingsView()
         {
             InitializeComponent();
         }

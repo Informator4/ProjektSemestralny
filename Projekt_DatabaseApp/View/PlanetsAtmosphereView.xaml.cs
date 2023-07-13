@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Projekt_DatabaseApp.View
 {
     /// <summary>
-    /// Logika interakcji dla klasy StarsView.xaml
+    /// Logika interakcji dla klasy PlanetsAtmosphereView.xaml
     /// </summary>
-    public partial class StarsView : UserControl
+    public partial class PlanetsAtmosphereView : UserControl
     {
-        public StarsView()
+        public PlanetsAtmosphereView()
         {
             InitializeComponent();
         }
