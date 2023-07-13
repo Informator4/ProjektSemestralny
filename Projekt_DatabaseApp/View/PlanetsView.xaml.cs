@@ -16,18 +16,13 @@ using System.Windows.Shapes;
 namespace Projekt_DatabaseApp.View
 {
     /// <summary>
-    /// Logika interakcji dla klasy StarsView.xaml
+    /// Logika interakcji dla klasy PlanetsView.xaml
     /// </summary>
-    public partial class StarsView : UserControl
+    public partial class PlanetsView : UserControl
     {
-        public StarsView()
+        public PlanetsView()
         {
             InitializeComponent();
-        }
-
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }

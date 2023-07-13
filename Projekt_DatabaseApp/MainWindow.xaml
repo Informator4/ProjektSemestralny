@@ -16,6 +16,16 @@
         <viewModel:MainViewModel/>
     </Window.DataContext>
 
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
+            <local:HomeView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModel:StarsViewModel}">
+            <local:StarsView/>
+        </DataTemplate>
+    </Window.Resources>
+
     <Border CornerRadius="20"
             BorderThickness="3">
 
@@ -60,43 +70,53 @@
                     </StackPanel>
 
                     <!--Menu-->
-                    <RadioButton Style="{StaticResource menuButton}">
+                    <RadioButton Style="{StaticResource menuButton}"
+                                 Command="{Binding ShowHomeViewCommand}"
+                                 Cursor="Hand"
+                                 IsChecked="True">
                         <StackPanel>
                             <TextBlock Text="Home" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
 
-                    <RadioButton Style="{StaticResource menuButton}">
+                    <RadioButton Style="{StaticResource menuButton}"
+                                 Command="{Binding ShowStarsViewCommand}"
+                                 Cursor="Hand">
                         <StackPanel>
                             <TextBlock Text="Stars" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
 
-                    <RadioButton Style="{StaticResource menuButton}">
+                    <RadioButton Style="{StaticResource menuButton}"
+                                 Cursor="Hand">
                         <StackPanel>
                             <TextBlock Text="Planets" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
 
-                    <RadioButton Style="{StaticResource menuButton}">
+                    <RadioButton Style="{StaticResource menuButton}"
+                                 Cursor="Hand">
                         <StackPanel>
                             <TextBlock Text="Natural satellites" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
 
-                    <RadioButton Style="{StaticResource menuButton}">
+                    <RadioButton Style="{StaticResource menuButton}"
+                                 Cursor="Hand">
                         <StackPanel>
                             <TextBlock Text="Star's atmosphere" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
 
-                    <RadioButton Style="{StaticResource menuButton}">
+                    <RadioButton Style="{StaticResource menuButton}"
+                                 Cursor="Hand">
                         <StackPanel>
                             <TextBlock Text="Planet's atmosphere" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
 
-                    <RadioButton Style="{StaticResource menuButton}">
+                    <RadioButton Style="{StaticResource menuButton}"
+                                 Cursor="Hand">
                         <StackPanel>
                             <TextBlock Text="Settings" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
@@ -124,6 +144,7 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
+                    <!--CtrlBar-->
                     <StackPanel x:Name="CtrlBar"
                                 Grid.Row="0"
                                 Orientation="Horizontal"
@@ -136,19 +157,22 @@
                         <Button x:Name="closeBatton"
                                 Style="{StaticResource CtrlButton}"
                                 Tag="{StaticResource c2}"
-                                Click="closeBatton_Click">
+                                Click="closeBatton_Click"
+                                Cursor="Hand">
                         </Button>
 
                         <Button x:Name="maxBatton"
                                 Style="{StaticResource CtrlButton}"
                                 Tag="{StaticResource c3}"
-                                Click="maxBatton_Click">
+                                Click="maxBatton_Click"
+                                Cursor="Hand">
                         </Button>
 
                         <Button x:Name="minBatton"
                                 Style="{StaticResource CtrlButton}"
                                 Tag="{StaticResource markedButton}"
-                                Click="minBatton_Click">
+                                Click="minBatton_Click"
+                                Cursor="Hand">
                         </Button>
 
                     </StackPanel>
@@ -164,7 +188,7 @@
                                 Orientation="Horizontal"
                                 VerticalAlignment="Center">
 
-                            <TextBlock Text="Home"
+                            <TextBlock Text="{Binding Caption}"
                                        Foreground="{StaticResource c1}"
                                        FontSize="30"
                                        FontFamily="Arial"
@@ -180,7 +204,8 @@
                                     Margin="0, 0, 12, 0">
 
                             <Button Style="{StaticResource profButton}"
-                                    Tag="{StaticResource c1}">
+                                    Tag="{StaticResource c1}"
+                                    Cursor="Hand">
 
                                 <TextBlock Text="v"
                                            FontSize="20"
@@ -197,6 +222,11 @@
                         </StackPanel>
 
                     </Grid>
+                    
+                    <!--Content-->
+                    <ContentControl Content="{Binding CurrentChildView}"
+                                    Grid.Row="2"
+                                    Margin="30"/>
 
                 </Grid>
 
