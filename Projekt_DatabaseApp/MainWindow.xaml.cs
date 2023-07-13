@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Runtime.InteropServices;
+using System.Windows.Interop;
 
 namespace Projekt_DatabaseApp
 {
@@ -23,12 +25,20 @@ namespace Projekt_DatabaseApp
         public MainWindow()
         {
             InitializeComponent();
-            this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
         }
+
+        [DllImport("user32.dll")]
+        public static extern IntPtr SendMessage(IntPtr hWnd, int wMessage, int wParam, int lParam);
 
         private void CtrlBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            DragMove();
+            WindowInteropHelper helper = new WindowInteropHelper(this);
+            SendMessage(helper.Handle, 161, 2, 0);
+        }
+
+        private void CtrlBar_MouseEnter(object sender, MouseEventArgs e)
+        {
+            this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
         }
     }
 }
