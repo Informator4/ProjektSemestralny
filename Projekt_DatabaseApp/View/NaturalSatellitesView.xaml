@@ -197,10 +197,10 @@
                     </Style>
                 </DataGrid.ColumnHeaderStyle>
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Satellites ID" HeaderStringFormat=""/>
-                    <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Planet ID"/>
-                    <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Name"/>
-                    <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Diameter"/>
+                    <DataGridTextColumn Binding="{x:Null}" Header="Satellites ID" HeaderStringFormat=""/>
+                    <DataGridTextColumn Binding="{x:Null}" Header="Planet ID"/>
+                    <DataGridTextColumn Binding="{x:Null}" Header="Name"/>
+                    <DataGridTextColumn Binding="{x:Null}" Header="Diameter"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Border>

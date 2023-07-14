@@ -197,15 +197,15 @@
                     </Style>
                 </DataGrid.ColumnHeaderStyle>
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Planet ID" HeaderStringFormat=""/>
-                    <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Name"/>
-                    <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Kind"/>
-                    <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Distance"/>
-                    <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Sidereal year"/>
-                    <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Nr of planets"/>
-                    <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Diameter"/>
-                    <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Surface"/>
-                    <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Mass"/>
+                    <DataGridTextColumn Binding="{x:Null}" Header="Planet ID" HeaderStringFormat=""/>
+                    <DataGridTextColumn Binding="{x:Null}" Header="Name"/>
+                    <DataGridTextColumn Binding="{x:Null}" Header="Kind"/>
+                    <DataGridTextColumn Binding="{x:Null}" Header="Distance"/>
+                    <DataGridTextColumn Binding="{x:Null}" Header="Sidereal year"/>
+                    <DataGridTextColumn Binding="{x:Null}" Header="Nr of planets"/>
+                    <DataGridTextColumn Binding="{x:Null}" Header="Diameter"/>
+                    <DataGridTextColumn Binding="{x:Null}" Header="Surface"/>
+                    <DataGridTextColumn Binding="{x:Null}" Header="Mass"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Border>

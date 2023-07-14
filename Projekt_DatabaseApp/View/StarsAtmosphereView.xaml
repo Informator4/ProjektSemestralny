@@ -197,10 +197,10 @@
                     </Style>
                 </DataGrid.ColumnHeaderStyle>
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="StarAtmosphere ID" HeaderStringFormat=""/>
-                    <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Star ID"/>
-                    <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Temperature"/>
-                    <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Composition"/>
+                    <DataGridTextColumn Binding="{x:Null}" Header="StarAtmosphere ID" HeaderStringFormat=""/>
+                    <DataGridTextColumn Binding="{x:Null}" Header="Star ID"/>
+                    <DataGridTextColumn Binding="{x:Null}" Header="Temperature"/>
+                    <DataGridTextColumn Binding="{x:Null}" Header="Composition"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Border>
