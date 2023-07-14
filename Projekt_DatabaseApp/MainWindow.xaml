@@ -230,6 +230,7 @@
 
                             <Button Style="{StaticResource profButton}"
                                     Tag="{StaticResource c1}"
+                                    Click="Button_Click"
                                     Cursor="Hand">
 
                                 <TextBlock Text="v"

@@ -58,5 +58,10 @@ namespace Projekt_DatabaseApp
         {
             this.WindowState = WindowState.Minimized;
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("This feature is not available yet...");
+        }
     }
 }

@@ -7,6 +7,14 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+
+        <Border Background="{StaticResource c5}"
+                CornerRadius="10">
+            <TextBlock Text="Aplikacja jest jeszcze we wstępnym dostępie... Przepraszamy za niedogodności..."
+                   FontSize="15"
+                   Foreground="{StaticResource c1}"
+                   FontFamily="Arial"
+                   Margin="20"/>
+        </Border>
     </Grid>
 </UserControl>
