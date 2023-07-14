@@ -10,7 +10,7 @@
 
         <Border Background="{StaticResource c5}"
                 CornerRadius="10">
-            <TextBlock Text="Aplikacja jest jeszcze we wstępnym dostępie... Przepraszamy za niedogodności..."
+            <TextBlock Text="Aplikacja jest jeszcze we wstępnym dostępie. Pewne funkcje mogą nie działać..."
                    FontSize="15"
                    Foreground="{StaticResource c1}"
                    FontFamily="Arial"
