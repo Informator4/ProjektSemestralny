@@ -18,16 +18,11 @@ namespace Projekt_DatabaseApp.View
     /// <summary>
     /// Logika interakcji dla klasy StarsView.xaml
     /// </summary>
-    public partial class StarsView : UserControl  /*, IStarView*/
+    public partial class StarsView : UserControl
     {
         public StarsView()
         {
             InitializeComponent();
-        }
-
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
 
         //// ### Properties ###

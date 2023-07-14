@@ -187,7 +187,7 @@
             <DataGrid ColumnWidth="*"
                       Name="dataGrid1"
                       Background="{StaticResource c5}"
-                      BorderThickness="0" SelectionChanged="DataGrid_SelectionChanged">
+                      BorderThickness="0">
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="DataGridColumnHeader">
                         <Setter Property="Background" Value="Transparent"/>
@@ -198,7 +198,7 @@
                     </Style>
                 </DataGrid.ColumnHeaderStyle>
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding StarId}" Header="Star ID" HeaderStringFormat=""/>
+                    <DataGridTextColumn Binding="{Binding GwiazdaID}" Header="Star ID" HeaderStringFormat=""/>
                     <DataGridTextColumn Binding="{Binding StarName}" Header="Name"/>
                     <DataGridTextColumn Binding="{Binding StarKind}" Header="Kind"/>
                     <DataGridTextColumn Binding="{Binding StarDistance}" Header="Distance"/>
