@@ -14,17 +14,20 @@
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="130"/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="40"/>
                 <ColumnDefinition Width="120"/>
             </Grid.ColumnDefinitions>
             <StackPanel Orientation="Horizontal"
                         VerticalAlignment="Top"
                         Grid.Column="0">
                 <TextBox Text="Search..."   
-                    FontSize="13"
+                         FontSize="13"
                          Height="24"
-                           Width="300"
-                           Background="Transparent"
-                             FontWeight="Medium"
+                         Width="300"
+                         Background="Transparent"
+                         FontWeight="Medium"
                              FontFamily="Arial"                            
                              Foreground="{StaticResource c4}"
                              BorderBrush="{StaticResource c4}"
@@ -34,9 +37,119 @@
                     
                 </TextBox>
             </StackPanel>
+
+            <!--SearchButton-->
             <Button Grid.Column="1"
                             Command="{Binding LoginCommand}"                            
                             Content="Search"                            
+                            FontSize="15"
+                            FontFamily="Arial"
+                            Cursor="Hand"
+                            BorderThickness="0"
+                            Foreground="White"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="{StaticResource unmarkedButton}"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Height="30"
+                                            Width="120"
+                                                    CornerRadius="5"
+                                                    Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center"
+                                                          HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="{StaticResource markedButton}"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <!--MinusButton-->
+            <Button Grid.Column="2"
+                            Command="{Binding LoginCommand}"                            
+                            Content="–"                            
+                            FontSize="25"
+                            FontFamily="Arial"
+                            Cursor="Hand"
+                            BorderThickness="0"
+                            Foreground="White"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="{StaticResource unmarkedButton}"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Height="30"
+                                            Width="30"
+                                                    CornerRadius="5"
+                                                    Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center"
+                                                          HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="{StaticResource markedButton}"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            
+            <!--PlusButton-->
+            <Button Grid.Column="3"
+                            Command="{Binding LoginCommand}"                            
+                            Content="+"                            
+                            FontSize="25"
+                            FontFamily="Arial"
+                            Cursor="Hand"
+                            BorderThickness="0"
+                            Foreground="White"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="{StaticResource unmarkedButton}"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Height="30"
+                                            Width="30"
+                                                    CornerRadius="5"
+                                                    Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center"
+                                                          HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="{StaticResource markedButton}"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            
+            <!--UpdatehButton-->
+            <Button Grid.Column="4"
+                            Command="{Binding LoginCommand}"                            
+                            Content="Update"                            
                             FontSize="15"
                             FontFamily="Arial"
                             Cursor="Hand"
@@ -72,8 +185,9 @@
                 CornerRadius="10" 
                 Padding="10">
             <DataGrid ColumnWidth="*"
-                  Background="{StaticResource c5}"
-                  BorderThickness="0">
+                      Name="dataGrid1"
+                      Background="{StaticResource c5}"
+                      BorderThickness="0" SelectionChanged="DataGrid_SelectionChanged">
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="DataGridColumnHeader">
                         <Setter Property="Background" Value="Transparent"/>
@@ -84,13 +198,13 @@
                     </Style>
                 </DataGrid.ColumnHeaderStyle>
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Star ID" HeaderStringFormat=""/>
-                    <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Name"/>
-                    <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Kind"/>
-                    <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Distance"/>
-                    <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Nr of planets"/>
-                    <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Diameter"/>
-                    <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Mass"/>
+                    <DataGridTextColumn Binding="{Binding StarId}" Header="Star ID" HeaderStringFormat=""/>
+                    <DataGridTextColumn Binding="{Binding StarName}" Header="Name"/>
+                    <DataGridTextColumn Binding="{Binding StarKind}" Header="Kind"/>
+                    <DataGridTextColumn Binding="{Binding StarDistance}" Header="Distance"/>
+                    <DataGridTextColumn Binding="{Binding StarNOP}" Header="Nr of planets"/>
+                    <DataGridTextColumn Binding="{Binding StarDiameter}" Header="Diameter"/>
+                    <DataGridTextColumn Binding="{Binding StarMass}" Header="Mass"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Border>
